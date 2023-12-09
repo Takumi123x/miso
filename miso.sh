@@ -37,7 +37,7 @@ MARK2;TPUT 47 45
 made_iso (){
 clone_a (){
 clear
-dirf="$(echo "$(<~/rou/pc_ext.txt)")"
+dirf="$(echo "$(<~/miso/pc_ext.txt)")"
 TPUT  6 1;ls -x $dirf
 MARK2;TPUT 47 1;$e "	                        ";TPUT 47 1;$e "cmd:|select|back|exit|term:";read p;UNMARK;
 case $p in
@@ -60,15 +60,15 @@ xorriso \
 -joliet on \
 -compliance "iso_9660_level=3:deep_paths:long_paths:long_names" \
 -file_size_limit off -- \
--outdev "$(echo "$(<~/rou/pc_ext.txt)")".iso \
+-outdev "$(echo "$(<~/miso/pc_ext.txt)")".iso \
 -blank as_needed \
--map "$(echo "$(<~/rou/pc_ext.txt)")" /
+-map "$(echo "$(<~/miso/pc_ext.txt)")" /
 ;;
 *)
 internal_path="$dirf"
 if [ -e $dirf/$p ]
 then
-echo "$dirf/$p" > ~/rou/pc_ext.txt
+echo "$dirf/$p" > ~/miso/pc_ext.txt
 clone_b
 else
 clone_a
@@ -79,7 +79,7 @@ esac
 
 clone_b (){
 clear
-dirf="$(echo "$(<~/rou/pc_ext.txt)")"
+dirf="$(echo "$(<~/miso/pc_ext.txt)")"
 TPUT  6 1;ls -x $dirf
 MARK2;TPUT 47 1;$e "	                        ";TPUT 47 1;$e "cmd:|select|back|exit|term:";read p;UNMARK;
 case $p in
@@ -102,15 +102,15 @@ xorriso \
 -joliet on \
 -compliance "iso_9660_level=3:deep_paths:long_paths:long_names" \
 -file_size_limit off -- \
--outdev "$(echo "$(<~/rou/pc_ext.txt)")".iso \
+-outdev "$(echo "$(<~/miso/pc_ext.txt)")".iso \
 -blank as_needed \
--map "$(echo "$(<~/rou/pc_ext.txt)")" /
+-map "$(echo "$(<~/miso/pc_ext.txt)")" /
 ;;
 *)
 internal_path="$dirf"
 if [ -e $dirf/$p ]
 then
-echo "$dirf/$p" > ~/rou/pc_ext.txt
+echo "$dirf/$p" > ~/miso/pc_ext.txt
 clone_b
 else
 clone_a
@@ -144,15 +144,15 @@ xorriso \
 -joliet on \
 -compliance "iso_9660_level=3:deep_paths:long_paths:long_names" \
 -file_size_limit off -- \
--outdev "$(echo "$(<~/rou/pc_ext.txt)")".iso \
+-outdev "$(echo "$(<~/miso/pc_ext.txt)")".iso \
 -blank as_needed \
--map "$(echo "$(<~/rou/pc_ext.txt)")" /
+-map "$(echo "$(<~/miso/pc_ext.txt)")" /
 ;;
 *)
 internal_path="$dirf"
 if [ -e $dirf/$p ]
 then
-echo "$dirf/$p" > ~/rou/pc_ext.txt
+echo "$dirf/$p" > ~/miso/pc_ext.txt
 clone_b
 else
 clone_a
@@ -164,7 +164,7 @@ esac
 extract_browse (){
 Alone_a (){
 clear
-dirf="$(echo "$(<~/rou/pc_ext.txt)")"
+dirf="$(echo "$(<~/miso/pc_ext.txt)")"
 TPUT  6 1;ls -x $dirf
 MARK2;TPUT 47 1;$e "	                        ";TPUT 47 1;$e "cmd:|select|back|exit|term:";read p;UNMARK;
 case $p in
@@ -178,18 +178,18 @@ clear
 ARM-SW
 ;;
 "select")
-if [ -e "$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso ]
+if [ -e "$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso ]
 then
 cd ~
 mkdir $internal_root/AP
-7z x "$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso -o$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')
+7z x "$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso -o$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')
 fi
 ;;
 *)
 internal_path="$dirf"
 if [ -e $dirf/$p ]
 then
-echo "$dirf/$p" > ~/rou/pc_ext.txt
+echo "$dirf/$p" > ~/miso/pc_ext.txt
 Alone_b
 else
 Alone_a
@@ -200,7 +200,7 @@ esac
 
 Alone_b (){
 clear
-dirf="$(echo "$(<~/rou/pc_ext.txt)")"
+dirf="$(echo "$(<~/miso/pc_ext.txt)")"
 TPUT  6 1;ls -x $dirf
 MARK2;TPUT 47 1;$e "	                        ";TPUT 47 1;$e "cmd:|select|back|exit|term:";read p;UNMARK;
 case $p in
@@ -214,18 +214,18 @@ clear
 ARM-SW
 ;;
 "select")
-if [ -e "$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso ]
+if [ -e "$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso ]
 then
 cd ~
 mkdir $internal_root/AP
-7z x "$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso -o$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')
+7z x "$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso -o$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')
 fi
 ;;
 *)
 internal_path="$dirf"
 if [ -e $dirf/$p ]
 then
-echo "$dirf/$p" > ~/rou/pc_ext.txt
+echo "$dirf/$p" > ~/miso/pc_ext.txt
 Alone_b
 else
 Alone_a
@@ -250,18 +250,18 @@ clear
 ARM-SW
 ;;
 "select")
-if [ -e "$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso ]
+if [ -e "$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso ]
 then
 cd ~
 mkdir $internal_root/AP
-7z x "$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso -o$(echo "$(<~/rou/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')
+7z x "$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')".iso -o$(echo "$(<~/miso/pc_ext.txt)" | sed -e 's/\(.iso\)*$//g')
 fi
 ;;
 *)
 internal_path="$dirf"
 if [ -e $dirf/$p ]
 then
-echo "$dirf/$p" > ~/rou/pc_ext.txt
+echo "$dirf/$p" > ~/miso/pc_ext.txt
 Alone_b
 else
 Alone_a
