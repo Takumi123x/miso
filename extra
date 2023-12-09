@@ -1,0 +1,2 @@
+busybox ln -s /system/Select/* /system/lib
+busybox ln -s /system/Select64/* /system/lib64
