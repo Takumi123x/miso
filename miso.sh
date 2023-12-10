@@ -119,7 +119,22 @@ fi
 esac
 }
 
-dirf="/mnt/c"
+if [ "$(getprop ro.product.cpu.abi)" == "armeabi-v7a" ]
+then
+dirf=/storage/emulated/0/
+else
+if [ "$(getprop ro.product.cpu.abi)" == "arm64-v8a" ]
+then
+dirf=/storage/emulated/0/
+else
+if [ "$(dpkg --print-architecture)" == "amd64" ]
+then
+dirf=/
+else
+dirf=/
+fi
+fi
+fi
 $e "\ec\e[37;00m\e[J"
 clear
 TPUT  6 1;ls -x $dirf
@@ -271,6 +286,18 @@ esac
 }
 
 ARM-SW (){
+if [ -e ~/miso/complete.txt ]
+then
+echo " "
+else
+apt install p7zip-full
+apt install p7zip
+apt install xorriso
+ln -s ~/miso/miso.sh ~/
+ln -s ~/miso/miso.sh /bin
+ln -s ~/miso/miso.sh /data/data/com.termux/files/usr/bin
+echo " " > ~/miso/complete.txt
+fi
 #Device info
 clear
       E='echo -e';e='echo -en';trap "R;exit" 2
